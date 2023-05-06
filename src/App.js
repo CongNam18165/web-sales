@@ -1,23 +1,23 @@
-import { Routes, Route} from "react-router-dom"
-import HomePage from "./ComponentHome/Home"
-import NewsPage from "./ComponentNews/News"
-import About from "./ComponentAbout/About"
+import { Routes, Route } from "react-router-dom"
 
 
 import GlobalStyles from "./GlobalStyles"
-
+import Navbar from "./components/Navbar/index"
+import HomePage from "./pages/Home/Home"
+import News from "./pages/News/News"
+import About from "./pages/About/About"
 function App() {
   return (
-      <GlobalStyles>
-    <div className="App">
-     
-   <Routes>
-    <Route path = "/" element = {<HomePage/>}/>
-    <Route path = "/news" element = {<NewsPage/>}/>
-    <Route path = "/about" element = {<About/>}/>    
-   </Routes>
-    </div>
-   </GlobalStyles>
+    <GlobalStyles>
+      <div className="App">
+      <Navbar/>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </GlobalStyles>
   )
 }
 

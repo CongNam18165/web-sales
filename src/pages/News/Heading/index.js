@@ -1,7 +1,7 @@
 import './styles.module.css'
 function Heading(){
     return(
-        <p>Heading</p>
+        <p>News</p>
     )
 }
 export default Heading

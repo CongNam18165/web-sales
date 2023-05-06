@@ -1,0 +1,46 @@
+.container{
+    border-radius: 3px;
+    background: linear-gradient(to right, #eee, rgb(237, 205, 148), white);
+    margin: 0 15%;
+justify-content: space-between;
+align-items: center;
+}
+.listBar{
+    padding: 0.8rem 0 ;
+    margin: auto 0;
+    font-size: 1.6rem;
+}
+.listBar li{
+    margin: auto;
+    font-size: 1.6rem;
+    &:first-child{
+        padding:0  0.8rem;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+.listMore{
+    padding: 0.8rem 0 ;
+    font-size: 1.6rem;
+}
+.listMore li{
+    // padding: 0 1.6rem;
+    margin: auto 1.6rem;
+    font-size: 2.2rem;
+    &:first-child{
+        justify-content: center;
+        align-items: center;
+    }
+    &:first-child:hover{
+        color: green;
+        opacity: 0.8;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+.listMore p{
+    margin: auto;
+    font-size: 1.6rem;
+}

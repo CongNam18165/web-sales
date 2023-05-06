@@ -1,8 +1,7 @@
-
 import './styles.module.css'
 function Heading(){
     return(
-   <p>home</p>
+        <p>About</p>
     )
 }
 export default Heading

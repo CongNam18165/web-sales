@@ -1,0 +1,9 @@
+.flex{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+
+}
+html{
+    font-size: 62.5%;
+}
