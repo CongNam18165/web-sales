@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/index"
 import HomePage from "./pages/Home/Home"
 import News from "./pages/News/News"
 import About from "./pages/About/About"
+import Product from "./pages/Product/index"
 function App() {
   return (
     <GlobalStyles>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/news" element={<News />} />
           <Route path="/about" element={<About />} />
+          <Route path= "/product/:id" element = {<Product  />} />
         </Routes>
       </div>
     </GlobalStyles>
