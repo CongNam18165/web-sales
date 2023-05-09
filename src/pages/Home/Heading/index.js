@@ -1,8 +1,14 @@
 
 import clsx from 'clsx'
 import styles from "./styles.module.scss"
-
+import {Link } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 function Heading() {
+    const history = useNavigate();
+    const handleCart = () => {
+        history("/cart");
+
+    }
     return (
         <div className={clsx(styles.container,'flex')}>
             <ul className = {clsx(styles.listBar,'flex')}>
@@ -22,7 +28,7 @@ function Heading() {
                 <i class="fa-solid fa-circle-dollar-to-slot"></i>
                 </li>
                 <li>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <a onClick={handleCart}><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
                 <li >
                 <i class="fa-solid fa-user"></i>

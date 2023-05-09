@@ -2,7 +2,8 @@
     display: flex;
     list-style: none;
     text-decoration: none;
-
+    justify-content: center;
+    align-items: center;
 }
 html{
     font-size: 62.5%;

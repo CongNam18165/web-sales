@@ -1,0 +1,155 @@
+.decriptionProduct {
+    display: flex;
+    margin: 0.8rem 15% 0;
+    font-size: 1.6rem;
+
+    & img {
+        width: 100%;
+        min-height: 56rem;
+        border-radius: 5px;
+    }
+}
+
+.decriptionProduct div {
+    &:first-child {
+        margin: 0.8rem 0 0 0;
+        flex: 50%;
+    }
+}
+
+.listStar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    color: #FAAF00;
+
+    & li {
+        list-style: none;
+    }
+}
+
+.boxDecription {
+    margin: 0.8rem 0 0 2.4rem;
+    flex: 50%;
+
+    & p:first-child {
+        margin: 0;
+        padding: 0.3rem 0.8rem;
+        background-color: #DFF3EA;
+        color: #1B806A;
+        width: 15%;
+        border-radius: 5px;
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+    & p:nth-child(2) {
+        font-weight: bolder;
+        font-size: 1.6rem;
+    }
+
+    & p:nth-child(3) {
+        margin-top: 0;
+        color: #637381;
+
+        & span {
+            animation: flick 0.7s linear infinite;
+
+        }
+    }
+
+    & p:nth-child(5) span {
+        text-decoration: line-through;
+        opacity: 0.7;
+    }
+
+    & p:nth-child(6) {
+        margin: auto;
+
+        // color: green;
+        & i:first-child {
+            font-size: 1.2rem;
+            margin: auto;
+            color: #6CC942;
+        }
+
+        & i:nth-child(3) {
+            color: #637381;
+        }
+
+        & span:nth-child(2) {
+            color: #6CC942;
+
+        }
+
+        & span:last-child {
+            color: black;
+        }
+    }
+
+    & p:nth-child(7) {
+        color: #637381;
+    }
+
+    & p:nth-child(8) {
+        color: #637381;
+    }
+    & p:last-child {
+        margin: auto;
+        color: red;
+        text-align: center;
+        padding: 0.8rem;
+        background-color: #eee;
+        margin-top: 3.6rem;
+        border-radius: 5px;
+        &:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+            }
+}
+
+.boxBuy {
+    font-size: 1rem;
+    // margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h2:last-child{
+        // margin: auto;
+        padding: 0.8rem;
+        background-color: #eee;
+        border-radius: 5px;
+        color: black;
+        &:hover {
+            background-color: black;
+            color:#eee;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+    }
+
+    & i {
+        background-color: #eee;
+        border-radius: 5px;
+        padding:0.3rem 0.8rem;
+        margin: 0 0.8rem;
+        cursor: pointer;
+       &:hover{
+        opacity: 0.5;
+       }
+    }
+    
+}
+
+@keyframes flick {
+    from {
+        color: red;
+    }
+
+    to {
+        color: green;
+    }
+}

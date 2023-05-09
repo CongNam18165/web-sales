@@ -10,7 +10,7 @@ align-items: center;
 .listPage li{
     // padding: 1.6rem; 
     font-size: 1.6rem;
-    margin: 1.6rem 0;
+    margin: auto;
  &:hover{
     background-color: #333;
     cursor: pointer;
@@ -35,7 +35,7 @@ align-items: center;
 .img{
     margin: auto 0.8rem;
     width: 9rem;
-    height: 5rem;
+    height: 9rem;
     border-radius: 50%;
 }
 .listTools li{

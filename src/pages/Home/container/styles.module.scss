@@ -12,10 +12,20 @@
     margin: 0.8rem;
 
 }
+.linkProduct{
+    margin: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: 25rem;  
+}
 .image{
+    &:hover{
+        cursor: pointer;
+    }
     border-radius: 3px;
     width: 100%;
     height: 25rem;
+
 }
 .nameProduct{
 margin: auto;

@@ -7,6 +7,7 @@ import HomePage from "./pages/Home/Home"
 import News from "./pages/News/News"
 import About from "./pages/About/About"
 import Product from "./pages/Product/index"
+import Cart from "./pages/Cart/index"
 function App() {
   return (
     <GlobalStyles>
@@ -16,7 +17,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/news" element={<News />} />
           <Route path="/about" element={<About />} />
-          <Route path= "/product/:id" element = {<Product  />} />
+          <Route path = "/cart" element = {<Cart />} />
+          <Route path= "/product/:id" element = {<Product />} />
         </Routes>
       </div>
     </GlobalStyles>
