@@ -10,7 +10,7 @@ function Container() {
         fetch("https://64560c052e41ccf1691288a4.mockapi.io/products")
             .then(res => res.json())
             .then(res => setproducts(res))
-            .then(console.log(products))
+            // .then(console.log(products))
     },[])
     const id = [];
     const history = useNavigate();

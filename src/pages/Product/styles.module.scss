@@ -96,13 +96,14 @@
     }
     & p:last-child {
         margin: auto;
-        color: red;
+        animation: flick 0.7s linear infinite;
         text-align: center;
         padding: 0.8rem;
         background-color: #eee;
         margin-top: 3.6rem;
         border-radius: 5px;
         &:hover{
+            animation: none;
             background-color: black;
             color: white;
             cursor: pointer;

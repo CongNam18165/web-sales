@@ -68,18 +68,75 @@ align-items: center;
 
 }
 
-.listTools button{
-    padding: 0.8rem 1.6rem;
-    border: solid #eee 0.2rem;
-    border-radius: 5px;
-    font-weight: bolder;
- animation: flick 0.8s linear infinite;
- &:hover{
-    background-color: #333;
-    color: white;
-    animation: none;
- }
+// .listTools button{
+//     padding: 0.8rem 1.6rem;
+//     border: solid #eee 0.2rem;
+//     border-radius: 5px;
+//     font-weight: bolder;
+//  animation: flick 0.8s linear infinite;
+//  &:hover{
+//     background-color: #333;
+//     color: white;
+//     animation: none;
+//  }
+// }
+
+.position{
+    position: relative;
 }
+.none{
+    display: none;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    
+    // display: none;
+  }
+  
+  .visible{
+    display: block;
+    // max-height: 15rem;
+
+  }
+  
+  .searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 0.8rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #eee;
+   animation: slider 0.2s ease-in-out ;
+   border-radius: 5px;
+  }
+  .searchInput{
+    background-color: #eee;
+    flex: 1;
+    border: none;
+    height: 6rem;
+    &:focus{
+        outline: none;
+    }
+  }
+  .searchButton{
+    background-color: black;
+    color: white;
+    border: none;
+    height: 5rem;
+
+    border-radius: 5px;
+    &:hover{
+        opacity:0.7;
+    }
+  }
 @keyframes around {
     from{
         transform:rotate(0deg);
@@ -88,11 +145,20 @@ align-items: center;
         transform: rotate(360deg);
             }
 }
+
 @keyframes flick {
     from{
 color: red;
     }
     to{
 color: green;
+    }
+}
+@keyframes slider{
+    from{
+        height: 0;
+    }
+    to{
+        height: 6rem;
     }
 }
