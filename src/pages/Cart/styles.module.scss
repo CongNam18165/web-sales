@@ -12,8 +12,63 @@
 .boxGods{
     display: flex;
     justify-content: space-between;
-    & div{
+    margin: 1.6rem;
+    & div:first-child{
+        width: 45%;
+    }
+    & div:nth-child(2){
         width: 25%;
     }
+    & div:nth-child(3){
+        width: 15%;
+    }
+    & div:last-child{
+        width: 15%;
+    }
 
+}
+.imgProduct{
+    width: 5rem;
+    height: 5rem;
+}
+.amount{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    & h2{
+        margin-right: 0.8rem;
+    }
+}
+.minusPlus{
+    display: flex;
+    margin:  auto 0;
+    & i{
+        background-color: #eee;
+        cursor: pointer;
+        padding: 0.8rem;
+    }
+    & i:hover{
+        opacity: 0.7;
+    }
+    & i:first-child{
+        margin-right: 0.5rem;
+        border-top-left-radius: 40%;
+        border-bottom-left-radius: 40%;
+    }
+    & i:last-child{
+        border-top-right-radius: 40%;
+        border-bottom-right-radius: 40%;
+    }
+}
+.boxProduct{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    & h2{
+        margin: 0;
+    }
+}
+.trash:hover{
+  opacity: 0.7;
+  cursor: pointer  ;
 }

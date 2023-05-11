@@ -21,7 +21,7 @@ function Product() {
         for(let i =0; i< detailProduct.rate; i++){
 rating.push('<i class="fa-solid fa-star"></i>')
 }
-console.log(rating);
+
         const numberSale = ((Number(detailProduct.price) * 80) / 100).toFixed() + '.00';
         const handleAmountMinus = () => {
                 if (amount > 1) {

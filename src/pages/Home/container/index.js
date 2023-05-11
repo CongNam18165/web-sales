@@ -10,29 +10,38 @@ function Container() {
         fetch("https://64560c052e41ccf1691288a4.mockapi.io/products")
             .then(res => res.json())
             .then(res => setproducts(res))
-            // .then(console.log(products))
-    },[])
-    const id = [];
+      
+    }, [])
+    // const id = [];
     const history = useNavigate();
-function handleOnClick(id){
-  history(`/product/${id}`) 
-}
+    function handleOnClickProduct(id) {
+        history(`/product/${id}`)
+    }
+    const data = JSON.parse(localStorage.getItem("ProductsData")) || [];
+function handleOnClickCart(arrs){
+    data.push(
+        {
+            name :  arrs[0],
+            img : arrs[1],
+            price : arrs[2],
+            id: arrs[3]
+        })
+        localStorage.setItem('ProductsData', JSON.stringify(data));    
+    }
     return (
         <>
             <div className={clsx(styles.container)}>
                 {products.map(function (product) {
-                    id.push(id);
                     return (
-
                         <div className={clsx(styles.product)} key={product.id}>
                             {/* <Link className={clsx(styles.linkProduct)} to = {`/product/${product.id}`}> */}
-                            <img onClick={() => handleOnClick(product.id)} className={clsx(styles.image)} src={product.image} alt='anh minh hoa' />
+                            <img onClick={() => handleOnClickProduct(product.id)} className={clsx(styles.image)} src={product.image} alt='anh minh hoa' />
                             {/* </Link> */}
                             <h2 className={clsx(styles.nameProduct)}>{product.name}</h2>
                             <p className={clsx(styles.price)}>Price: ${product.price}</p>
                             <p>{product.description}</p>
                             {/* <Link to = {`/product/${product.id}`}><i class="fa-solid fa-cart-plus"></i>ADD TO CART</Link> */}
-                            <a ><i class="fa-solid fa-cart-plus"></i>ADD TO CART</a>
+                            <a onClick={() => handleOnClickCart([product.name, product.image, product.price,product.id])} ><i class="fa-solid fa-cart-plus"></i>ADD TO CART</a>
                         </div>
                     )
                 })
@@ -50,7 +59,7 @@ function handleOnClick(id){
                     <li><i class="fa-solid fa-chevron-right"></i></li>
 
                 </ul>
-                
+
             </div>
         </>
     )
