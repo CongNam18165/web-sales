@@ -1,9 +1,11 @@
-import styles from "./styles.module.scss"
-import clsx from "clsx"
+import styles from "./styles.module.scss";
+import clsx from "clsx";
 import Heading from "../Home/Heading/index"
 import { useEffect, useState } from "react"
+import CartItem from "../../components/CartItem"
 
 function Cart() {
+
     const [cart, setCart] = useState([])
     useEffect(() => {
         const storeProducts = localStorage.getItem('ProductsData')
@@ -12,20 +14,34 @@ function Cart() {
 
         setCart(parsedStoreProducts)
     }, [])
-function handleOnClickTrash(id){
-   const newCart = cart.filter(item => item.id !== id )
-    setCart(newCart)
-    localStorage.setItem('ProductsData', JSON.stringify(newCart));
-}
-    // const [quantity, setQuantity] = useState(1);
-    // function handleQuantityMinus(e) {
-    //     if (quantity > 1)
-    //         setQuantity(quantity - 1)
-    // }
-    // function handleQuantityPlus() {
 
-    //     setQuantity(quantity + 1)
-    // }
+    function handleOnClickTrash(id) {
+        let newCart = cart.filter(item => item.id !== id)
+        setCart(newCart)
+        localStorage.setItem('ProductsData', JSON.stringify(newCart));
+    }
+    function handleQuantityMinus(parsedStoreProduct) {
+        let newCart = cart.map(cartItem => {
+            if (cartItem.id === parsedStoreProduct.id) {
+                if (cartItem.quantity > 0) {
+                    cartItem.quantity--;
+                }
+            };
+            return cartItem;
+        })
+        newCart = newCart.filter(item => item.quantity > 0);
+        localStorage.setItem('ProductsData', JSON.stringify(newCart));
+        setCart(newCart);
+    }
+
+    function handleQuantityPlus(parsedStoreProduct) {
+        let newCart = cart.map(cartItem => {
+            if (cartItem.id === parsedStoreProduct.id) cartItem.quantity++;
+            return cartItem;
+        })
+        localStorage.setItem("ProductsData", JSON.stringify(newCart))
+        setCart(newCart);
+    }
     return (
         <>
             <Heading />
@@ -38,29 +54,11 @@ function handleOnClickTrash(id){
                     <div><h2></h2></div>
                 </div>
                 {
-
                     cart === null ? <h1>Empty</h1> :
-                        cart.map(function (parsedStoreProduct) {
-                            return (
-                                <>
-                                    <div key={parsedStoreProduct.price} className={clsx(styles.boxGods)}>
-                                        <div className={styles.boxProduct}>
-                                            <img className={styles.imgProduct} src={parsedStoreProduct.img ? parsedStoreProduct.img : ''} />
-                                            <h2>{parsedStoreProduct.name ? parsedStoreProduct.name : ''}</h2>
-                                        </div>
-                                        <div className={clsx(styles.amount)}>
-                                            <h2>1</h2>
-                                            <div className={clsx(styles.minusPlus)}>
-                                                <i  class="fa-solid fa-minus"></i>
-                                                <i  class="fa-solid fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div><h2>{parsedStoreProduct.price ? parsedStoreProduct.price : ''}</h2></div>
-                                        <div onClick= {() => handleOnClickTrash(parsedStoreProduct.id)} className={styles.trash}><h2><i class="fa-regular fa-trash-can"></i></h2></div>
-                                    </div>
-                                </>
-                            )
-                        })
+                        cart.map((parsedStoreProduct) => (
+                            <CartItem key={parsedStoreProduct.id} cartItem={parsedStoreProduct} onPlus={handleQuantityPlus} onMinus={handleQuantityMinus} onDelete={handleOnClickTrash} />
+                        )
+                        )
                 }
             </div>
         </>

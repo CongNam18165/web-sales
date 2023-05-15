@@ -5,7 +5,7 @@
 
     & img {
         width: 100%;
-        min-height: 56rem;
+        height: 48rem;
         border-radius: 5px;
     }
 }
@@ -152,5 +152,26 @@
 
     to {
         color: green;
+    }
+}
+@media only screen and (min-width:46.25em) and (max-width:64em){
+
+}
+@media only screen and (max-width: 46.25em){
+    .decriptionProduct{
+        flex-direction: column;
+    }
+    .boxDecription{
+        margin: 0;
+    }
+    .boxBuy{
+        & h2:last-child{
+            padding: 0.5rem;
+        }
+    }
+    .decriptionProduct{
+        & img{
+            height: 30rem;
+        }
     }
 }

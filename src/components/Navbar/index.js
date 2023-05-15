@@ -11,9 +11,6 @@ const [isSearchVisible,setisSearchVisible] = useState(false)
 const handleOnClick = () =>{
   setisSearchVisible(!isSearchVisible);
 }
-
-
-
   return (
      <>
     <div className={clsx(styles.position)}>
@@ -37,9 +34,6 @@ const handleOnClick = () =>{
         <li>
           <i class="fa-solid fa-gear"></i>
         </li>
-        {/* <li>
-          <button>Buy Now</button>
-        </li> */}
       </ul>
     </div >
     <div className={clsx(styles.none, isSearchVisible ? styles.visible : '')}>

@@ -76,17 +76,22 @@
 
 }
 @media only screen and (max-width: 46.25em){
-    .title{
-padding: 0;
+    .trash{
+        display: none;
+    }
+    .imgProduct{
+        display: none;
+    }
+    .minusPlus{
+        & i{
+            padding: 0.2rem;
+        }
     }
     .boxGods{
         font-size: 0.8rem;
-        & div{
-            text-align: center;
-        }
+       
         & div:last-child{
             display: none;
         }
     }
-   
 }

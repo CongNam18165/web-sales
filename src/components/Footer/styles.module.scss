@@ -1,71 +1,81 @@
-.footer{
+.footer {
     background-color: white;
     font-size: 1.6rem;
     display: flex;
     margin: 0 15%;
-    & p{
+
+    & p {
         color: #75838F;
     }
 }
-hr{
+
+hr {
     margin: 6rem 10%;
     border: solid 1px #eee;
 }
-.boxFooter1{
+
+.boxFooter1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-flex: 0.5;
+    flex: 0.5;
 
 }
 
-.imglogo{
+.imglogo {
     width: 15rem;
     height: 8rem;
     border-radius: 5px;
 
 }
 
-.boxEmail{
+.boxEmail {
     display: flex;
-    margin: 0.8rem 0 ;
-background-color: #eee;
-padding: 0.3rem;
-border-radius: 5px;
+    margin: 0.8rem 0;
+    background-color: #eee;
+    padding: 0.3rem;
+    border-radius: 5px;
 }
-.input{
+
+.input {
     padding: 1rem;
     background-color: #eee;
     border: none;
     border-radius: 5px;
     flex: 1;
-    &:focus{
+
+    &:focus {
         outline: none;
     }
 }
-.Subcribe{
+
+.Subcribe {
     background-color: black;
     color: white;
     border: none;
     border-radius: 5px;
-    &:hover{
+
+    &:hover {
         opacity: 0.7;
         cursor: pointer;
     }
 }
-.boxFooter2{
+
+.boxFooter2 {
     display: flex;
     flex-direction: column;
-    flex:0.5;
+    flex: 0.5;
     justify-content: flex-start;
     align-items: center;
-    & h2{
+
+    & h2 {
         margin-top: 0;
         text-align: center;
     }
 }
-.listSocial{
+
+.listSocial {
     display: flex;
     width: 15rem;
     list-style: none;
@@ -73,24 +83,40 @@ border-radius: 5px;
     justify-content: space-between;
     align-items: center;
     padding-left: 0;
-    & li:hover{
-opacity: 0.5;
-cursor: pointer;
+
+    & li:hover {
+        opacity: 0.5;
+        cursor: pointer;
     }
 }
-.imgAppstore{
+
+.imgAppstore {
     margin: 0.8rem;
     width: 14rem;
     height: 5rem;
-    &:hover{
+
+    &:hover {
         opacity: 0.7;
     }
+}
+
+.imgGgplay {
+    margin: 0.8rem;
+    width: 15rem;
+    height: 5rem;
+
+    &:hover {
+        opacity: 0.7;
     }
-    .imgGgplay{
-        margin: 0.8rem;
-        width: 15rem;
-        height: 5rem;
-        &:hover{
-            opacity: 0.7;
-        }
+}
+@media only screen and (min-width:46.25em) and (max-width:64em){
+
+}
+@media only screen and (max-width: 46.25em){
+    .footer{
+        flex-direction: column;
     }
+    .social{
+        text-align: center;
+    }
+}

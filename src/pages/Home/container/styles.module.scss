@@ -3,89 +3,16 @@
     display: flex;
     flex-wrap: wrap;
     margin-left:calc(15% - 0.8rem);
-
+margin-right: calc(15% - 0.8rem);
 }
 
-.product{
-    background-color: #eee;
-    flex-basis: calc(25% - 1.6rem);
-    margin: 0.8rem;
-
-}
-.linkProduct{
-    margin: 0;
-    border-radius: 3px;
-    width: 100%;
-    height: 25rem;  
-}
-.image{
-    &:hover{
-        cursor: pointer;
-    }
-    border-radius: 3px;
-    width: 100%;
-    height: 25rem;
-
-}
-.nameProduct{
-margin: auto;
-text-align: center;
-    &:hover{
-        cursor: pointer;
-    }
-}
-.product p{
-    // &:last-child{
-    //     font-size: 1.2rem;
-    //     width: 50%;
-    //     margin: 0 auto 0.8rem;
-    //     padding: 0.8rem 0.8rem;
-    // }
-    // &:last-child i{
-    //     padding-right: 0.8rem;
-    // }
-    // &:last-child:hover{
-    //     background-color: #000000;
-    //     cursor: pointer;
-    //     color: white;
-    //     border-radius: 5px;
-    // }
-    &:nth-child(4){
-        margin-left: 0.5rem;
-        min-height: 5rem
-    }
-}
-.product a{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-        font-size: 1.2rem;
-        margin: 0 auto 0.8rem;
-        padding: 0.8rem 0.8rem;
-        width: 50%;
-        text-decoration: none;
-        color: #000000;
-    
-    & i{
-        padding-right: 0.8rem;
-    }
-    &:hover{
-        background-color: #000000;
-        cursor: pointer;
-        color: white;
-        border-radius: 5px;
-    }
-}
-.price{
-    font-size: 1.2rem;
-        padding-left: 0.5rem;
-}
 .numberPages{
     margin: 0 15%;
     list-style: none;
     justify-content: center;
 }
-.numberPages li{
+.numberPages {
+& li{
     margin: 0 0.8rem;
     padding: 1.6rem;
     font-size: 1.6rem;
@@ -93,5 +20,25 @@ text-align: center;
         border-radius: 50%;
         background-color: #eee;
         cursor: pointer;
+    }
+}
+}
+@media only screen and (min-width:46.25em) and (max-width:64em){
+    .numberPages{
+        & li{
+            margin: 0.8rem;
+            padding: 1.2rem;
+            font-size: 1.4rem;
+        }
+    }
+}
+@media only screen and (max-width: 46.25em){
+    .numberPages{
+        padding: 0;
+        & li{
+            margin: 0;
+            padding: 0.8rem;
+            font-size: 1.2rem;
+        }
     }
 }

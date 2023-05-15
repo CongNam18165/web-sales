@@ -39,7 +39,7 @@ function Footer() {
                     </div>
                     <div>
                         <h2>Apps</h2>
-                        <div>
+                        <div className={clsx(styles.social)}>
                             <img className={clsx(styles.imgAppstore)} src={appstore} alt="anh minh" />
                             <img className = {clsx(styles.imgGgplay)} src={ggplay} alt="anh minh hoa" />
                         </div>

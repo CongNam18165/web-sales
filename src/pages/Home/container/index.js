@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 import clsx from "clsx"
 import { Link, useNavigate } from "react-router-dom"
+import ProductItem from "../../../components/ProductItem"
 
 function Container() {
 
@@ -10,41 +11,34 @@ function Container() {
         fetch("https://64560c052e41ccf1691288a4.mockapi.io/products")
             .then(res => res.json())
             .then(res => setproducts(res))
-      
+
     }, [])
-    // const id = [];
-    const history = useNavigate();
-    function handleOnClickProduct(id) {
-        history(`/product/${id}`)
-    }
-    const data = JSON.parse(localStorage.getItem("ProductsData")) || [];
-function handleOnClickCart(arrs){
-    data.push(
-        {
-            name :  arrs[0],
-            img : arrs[1],
-            price : arrs[2],
-            id: arrs[3]
+
+    function handleOnClickCart(product) {
+        const datas = JSON.parse(localStorage.getItem("ProductsData")) || [];
+        datas.map((data) => {
+            if (data.id == product.id) {
+                data.quantity++;
+            }
+
         })
-        localStorage.setItem('ProductsData', JSON.stringify(data));    
+        if (datas.every(data => data.id !== product.id) || datas.length === 0)
+            datas.push(
+                {
+                    name: product.name,
+                    img: product.image,
+                    price: product.price,
+                    id: product.id,
+                    quantity: product.quantity,
+                })
+        localStorage.setItem('ProductsData', JSON.stringify(datas));
     }
     return (
         <>
             <div className={clsx(styles.container)}>
-                {products.map(function (product) {
-                    return (
-                        <div className={clsx(styles.product)} key={product.id}>
-                            {/* <Link className={clsx(styles.linkProduct)} to = {`/product/${product.id}`}> */}
-                            <img onClick={() => handleOnClickProduct(product.id)} className={clsx(styles.image)} src={product.image} alt='anh minh hoa' />
-                            {/* </Link> */}
-                            <h2 className={clsx(styles.nameProduct)}>{product.name}</h2>
-                            <p className={clsx(styles.price)}>Price: ${product.price}</p>
-                            <p>{product.description}</p>
-                            {/* <Link to = {`/product/${product.id}`}><i class="fa-solid fa-cart-plus"></i>ADD TO CART</Link> */}
-                            <a onClick={() => handleOnClickCart([product.name, product.image, product.price,product.id])} ><i class="fa-solid fa-cart-plus"></i>ADD TO CART</a>
-                        </div>
-                    )
-                })
+                {products.map((product) => (
+                    <ProductItem key={product.id} productItem={product} handleOnClick={handleOnClickCart} />
+                ))
                 }
             </div>
             <div>
