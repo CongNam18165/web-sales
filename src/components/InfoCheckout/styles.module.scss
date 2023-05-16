@@ -1,0 +1,51 @@
+.boxCheckout {
+    display: flex;
+}
+
+.boxInfoDetails {
+    flex: 0.7;
+
+    & span {
+        padding: 0.5rem 1rem;
+        border-radius: 50%;
+        background-color: orange;
+        color: white;
+    }
+}
+
+.boxOrderSummary {
+    flex: 0.3;
+}
+
+hr {
+    margin: 3rem 10%;
+    border: dashed 1px #eee;
+}
+
+@media only screen and (min-width:46.25em) and (max-width:64em) {
+    .boxCheckout {
+        flex-direction: column;
+    }
+
+    .boxInfoDetails {
+        flex: 1;
+    }
+
+    .boxOrderSummary {
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width: 46.25em) {
+    .boxCheckout {
+        flex-direction: column;
+    }
+
+    .boxInfoDetails {
+        flex: 1;
+    }
+
+    .boxOrderSummary {
+        flex: 1;
+    }
+}

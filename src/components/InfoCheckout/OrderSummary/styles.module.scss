@@ -1,0 +1,116 @@
+.boxOrder{
+    border: solid 1px #eee;
+    padding: 5rem;
+    border-radius: 15px;
+    & >h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2.4rem;
+    }
+}
+.boxInfo{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    & img{
+        width: 5rem;
+        height: 5rem;
+        margin: 0.8rem;
+        border-radius: 5px;
+    }
+}
+.boxSmallInfo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.productInfo {
+    & p{
+        margin: 0 0 0.5rem 0;
+    }
+    & p:nth-child(2){
+        font-weight: bolder;
+    }
+}
+.trash{
+    
+    &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+.boxPay{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    & div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & p:last-child{
+            font-weight: bolder;
+        }
+    }
+}
+.discount{
+    padding: 0.8rem;
+    background-color: #eee;
+    border-radius: 5px;
+    & input{
+        background-color: #eee;
+        border: none;
+        &:focus{
+            outline: none;
+        }
+    }
+    & button{
+        border: none;
+        color: orange;
+        padding: 0.8rem;
+        border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(250, 84, 28, 0.08);
+        }
+    }
+}
+.totalCost{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & p{
+        font-size: 1.6rem;
+        font-weight: bolder;
+    }
+}
+.btnOrder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & button{
+        flex: 1;
+        padding: 0.8rem;
+        background-color: black;
+        color: #eee;
+        border: none;
+        border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+}
+@media only screen and (min-width:46.25em) and (max-width:64em) {
+
+}
+
+@media only screen and (max-width: 46.25em) {
+ 
+.discount{
+    & input{
+        width: 9rem;
+    }
+}
+}

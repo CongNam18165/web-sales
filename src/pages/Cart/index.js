@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Heading from "../Home/Heading/index"
 import { useEffect, useState } from "react"
 import CartItem from "../../components/CartItem"
+import { Link } from "react-router-dom"
 
 function Cart() {
 
@@ -60,6 +61,9 @@ function Cart() {
                         )
                         )
                 }
+            </div>
+            <div className={clsx(styles.buttonCheckout)}>
+                <Link to="/checkOut"> <button>CheckOut</button></Link>
             </div>
         </>
     )

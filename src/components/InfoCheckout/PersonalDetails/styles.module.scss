@@ -1,0 +1,79 @@
+.signIn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.6rem;
+
+    & div {
+        display: flex;
+        margin: 0 0.8rem;
+        border-radius: 5px;
+        border: solid 1px #eee;
+        padding: 0 0.8rem;
+        cursor: pointer;
+        & i {
+            margin: auto;
+            padding: 0 0.5rem;
+        }
+        & p{
+            margin: 0.8rem 0 1.1rem 0;
+        }
+        &:hover{
+            opacity: 0.7;
+            background-color: black;
+            color: white;
+        }
+    }
+}
+.infoUser{
+    display: flex;
+    justify-content: center;
+    
+}
+.dataInfo{
+    display: flex;
+    flex-direction: column;
+    & div{
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem 0.8rem 0;
+        background-color: #eee;
+        border-radius: 5px;
+        margin: 0.8rem ;
+    }
+    & input{
+        background-color: #eee;
+        width: 30rem;
+        border: none;
+        margin:0 0.8rem 0.8rem;
+        &:focus{
+            outline: none;
+        }
+    }
+    & label{
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+}
+@media only screen and (min-width:46.25em) and (max-width:64em) {
+
+}
+
+@media only screen and (max-width: 46.25em) {
+.signIn{
+    flex-wrap: wrap;
+    & div{
+        margin: 0.8rem 0;
+    }
+}
+.infoUser{
+    flex-direction: column;
+}
+.dataInfo{
+    & input{
+        width: 20rem;
+    }
+    flex: 1;
+}
+}

@@ -1,92 +1,134 @@
-.title{
+.title {
     margin: 5rem 15%;
     font-size: 3rem;
     padding-left: 5rem;
 }
-.containerGods{
+
+.containerGods {
     margin: 0 15%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
-.boxGods{
+
+.boxGods {
     display: flex;
     justify-content: space-between;
     margin: 1.6rem;
-    & div:first-child{
+
+    & div:first-child {
         width: 45%;
     }
-    & div:nth-child(2){
+
+    & div:nth-child(2) {
         width: 25%;
     }
-    & div:nth-child(3){
+
+    & div:nth-child(3) {
         width: 15%;
     }
-    & div:last-child{
+
+    & div:last-child {
         width: 15%;
     }
 
 }
-.imgProduct{
+
+.imgProduct {
     width: 5rem;
     height: 5rem;
 }
-.amount{
+
+.amount {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    & h2{
+
+    & h2 {
         margin-right: 0.8rem;
     }
 }
-.minusPlus{
+
+.minusPlus {
     display: flex;
-    margin:  auto 0;
-    & i{
+    margin: auto 0;
+
+    & i {
         background-color: #eee;
         cursor: pointer;
         padding: 0.8rem;
     }
-    & i:hover{
+
+    & i:hover {
         opacity: 0.7;
     }
-    & i:first-child{
+
+    & i:first-child {
         margin-right: 0.5rem;
         border-top-left-radius: 40%;
         border-bottom-left-radius: 40%;
     }
-    & i:last-child{
+
+    & i:last-child {
         border-top-right-radius: 40%;
         border-bottom-right-radius: 40%;
     }
 }
-.boxProduct{
+
+.boxProduct {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    & h2{
+
+    & h2 {
         margin: 0;
     }
 }
-.trash:hover{
-  opacity: 0.7;
-  cursor: pointer  ;
-}
-@media only screen and (min-width:46.25em) and (max-width:64em){
 
+.trash:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
-@media only screen and (max-width: 46.25em){
-    .title{
-padding: 0;
+
+.buttonCheckout {
+    margin: 0 15%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    & button {
+        padding: 0.8rem;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        border: none;
+        margin-right: 3.5rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #454f5b;
+        }
     }
-    .boxGods{
+}
+
+@media only screen and (min-width:46.25em) and (max-width:64em) {}
+
+@media only screen and (max-width: 46.25em) {
+    .title {
+        padding: 0;
+    }
+
+    .boxGods {
         font-size: 0.8rem;
-        & div{
+
+        & div {
             text-align: center;
         }
-        & div:last-child{
+
+        & div:last-child {
             display: none;
         }
     }
-   
+
 }
