@@ -1,12 +1,12 @@
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 import Heading from "../Home/Heading/index"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CartItem from "../../components/CartItem"
 import { Link } from "react-router-dom"
-
+import { AmountContext } from "../../GlobalVariable/amountContext";
 function Cart() {
-
+    const{ setAmount} = useContext(AmountContext)
     const [cart, setCart] = useState([])
     useEffect(() => {
         const storeProducts = localStorage.getItem('ProductsData')
@@ -19,6 +19,7 @@ function Cart() {
     function handleOnClickTrash(id) {
         let newCart = cart.filter(item => item.id !== id)
         setCart(newCart)
+        setAmount(newCart.length)
         localStorage.setItem('ProductsData', JSON.stringify(newCart));
     }
     function handleQuantityMinus(parsedStoreProduct) {
@@ -33,6 +34,7 @@ function Cart() {
         newCart = newCart.filter(item => item.quantity > 0);
         localStorage.setItem('ProductsData', JSON.stringify(newCart));
         setCart(newCart);
+        setAmount(newCart.length)
     }
 
     function handleQuantityPlus(parsedStoreProduct) {

@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 import clsx from "clsx"
-import { Link, useNavigate } from "react-router-dom"
 import ProductItem from "../../../components/ProductItem"
+import { AmountContext } from '../../../GlobalVariable/amountContext'
 
 function Container() {
 
@@ -13,16 +13,19 @@ function Container() {
             .then(res => setproducts(res))
 
     }, [])
+    const { amount, setAmount } = useContext(AmountContext)
 
     function handleOnClickCart(product) {
         const datas = JSON.parse(localStorage.getItem("ProductsData")) || [];
         datas.map((data) => {
-            if (data.id == product.id) {
+            if (data.id === product.id) {
                 data.quantity++;
+                localStorage.setItem('ProductsData', JSON.stringify(datas));
+                setAmount(datas.length);
             }
 
         })
-        if (datas.every(data => data.id !== product.id) || datas.length === 0)
+        if (datas.every(data => data.id !== product.id) || datas.length === 0) {
             datas.push(
                 {
                     name: product.name,
@@ -31,7 +34,10 @@ function Container() {
                     id: product.id,
                     quantity: product.quantity,
                 })
-        localStorage.setItem('ProductsData', JSON.stringify(datas));
+                setAmount(datas.length);
+                
+            localStorage.setItem('ProductsData', JSON.stringify(datas));
+        }
     }
     return (
         <>

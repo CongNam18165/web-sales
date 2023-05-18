@@ -19,7 +19,7 @@ function Footer() {
                     </div>
                     <div>
                         <h2>Let’s stay in touch</h2>
-                        <p>Ubscribe to our newsletter to receive latest articles to your inbox weekly.</p>
+                        <p>Subscribe to our newsletter to receive latest articles to your inbox weekly.</p>
                         <div className={styles.boxEmail}>
                             <input className= {styles.input} placeholder="Email address" />
                             <button className={styles.Subcribe}>Subcribe</button>

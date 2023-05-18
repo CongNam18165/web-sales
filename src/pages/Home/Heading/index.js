@@ -1,13 +1,15 @@
 
 import clsx from 'clsx'
 import styles from "./styles.module.scss"
-import {Link } from "react-router-dom"
-import { useNavigate} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { useContext, useState, useEffect } from "react"
+import {AmountContext} from "../../../GlobalVariable/amountContext"
 function Heading() {
-
+const {amount, setAmount} = useContext(AmountContext)
+console.log(amount)
     return (
-        <div className={clsx(styles.container,'flex')}>
-            <ul className = {clsx(styles.listBar,'flex')}>
+        <div className={clsx(styles.container, 'flex')}>
+            <ul className={clsx(styles.listBar, 'flex')}>
                 <li>
                     <i class="fa-solid fa-bars-staggered"></i>
                 </li>
@@ -18,17 +20,17 @@ function Heading() {
                     <i class="fa-solid fa-chevron-down"></i>
                 </li>
             </ul>
-            <ul className = {clsx(styles.listMore,'flex')}>
-                <li className = "flex">
-                <p>Top-up</p>
-                <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            <ul className={clsx(styles.listMore, 'flex')}>
+                <li className="flex">
+                    <p>Top-up</p>
+                    <i class="fa-solid fa-circle-dollar-to-slot"></i>
                 </li>
-                <li>
-                {/* <a onClick={handleCart}><i class="fa-solid fa-cart-shopping"></i></a> */}
-                <Link to = "/cart"><i class="fa-solid fa-cart-shopping"></i></Link>
+                <li className={clsx(styles.amountProducts)}>
+                    <Link to="/cart"><i class="fa-solid fa-cart-shopping"></i></Link>
+                    <div><p className={clsx(styles.numberAmount)}>{amount}</p></div>
                 </li>
                 <li >
-                <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-user"></i>
                 </li>
             </ul>
         </div>
