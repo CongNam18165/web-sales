@@ -15,7 +15,6 @@ export default function OrderSummary() {
         setTotalCost(total);
 
     }, [totalCost])
-    console.log(totalCost);
     return (
         <div className={clsx(styles.boxOrder)}>
             <h1>Order Summary</h1>

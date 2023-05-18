@@ -39,6 +39,10 @@
 .dataMethod{
     display: flex;
     flex-direction: column;
+    & p{
+        margin: 0;
+        padding: 1.6rem 0;
+    }
 }
 .styleMethod{
     display: flex;

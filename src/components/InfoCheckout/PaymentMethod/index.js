@@ -4,12 +4,19 @@ import paypal from "../../../assets/images/paypal.jpg"
 import visa from "../../../assets/images/visa.jpg"
 import masterCard from "../../../assets/images/Mastercard.png"
 export default function PaymentMethod() {
+
+    function handleOnClick(e) {
+        const isElementClicked = e.target.parentElement.parentElement;
+        isElementClicked.querySelector("input") == null ? isElementClicked.parentElement.querySelector('input').checked = true 
+        : isElementClicked.querySelector('input').checked = true;
+          
+    }
     return (
         <div>
             <h2><span>4</span> Payment Method</h2>
         <div className={clsx(styles.containerMethod)}>
-        <div className={clsx(styles.infoMethod)}>
-            <div>
+        <div onClick={handleOnClick} className={clsx(styles.infoMethod)}>
+            <div >
                 <input type="radio" name="payment" />
             </div>
             <div className={clsx(styles.dataMethod)}>
@@ -17,7 +24,7 @@ export default function PaymentMethod() {
                 <p>**** **** ****123</p>
             </div>
         </div>
-        <div className={clsx(styles.infoMethod)}>
+        <div onClick={handleOnClick} className={clsx(styles.infoMethod)}>
             <div>
                 <input type="radio" name="payment" />
             </div>
@@ -26,7 +33,7 @@ export default function PaymentMethod() {
                 <p>**** **** ****456</p>
             </div>
         </div>
-        <div className={clsx(styles.infoMethod)}>
+        <div onClick={handleOnClick} className={clsx(styles.infoMethod)}>
             <div>
                 <input type="radio" name="payment" />
             </div>
