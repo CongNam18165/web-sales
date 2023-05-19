@@ -1,14 +1,26 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss"
-// import { useRef } from "react"
+import { useContext, useState } from "react"
+import { FeeShipContext } from "../../../GlobalVariable/shippingFeeContext"
 export default function ShippingMethod() {
+    const { fee, setFee } = useContext(FeeShipContext)
 
     function handleOnClick(e) {
         const isElementClicked = e.target.parentElement.parentElement;
-        isElementClicked.querySelector("input") == null ? isElementClicked.parentElement.querySelector('input').checked = true
-            : isElementClicked.querySelector('input').checked = true;
+        // isElementClicked.querySelector("input") == null ? isElementClicked.parentElement.querySelector('input').checked = true
+        //     : isElementClicked.querySelector('input').checked = true;
+        if (isElementClicked.querySelector("input") == null) {
+            isElementClicked.parentElement.querySelector('input').checked = true;
+            setFee(isElementClicked.parentElement.querySelector('input').value)
+        }
+        else {
+            isElementClicked.querySelector('input').checked = true;
+            setFee(isElementClicked.querySelector('input').value)
 
+            
+        }
     }
+
     return (
         <div>
             <h2><span>3</span> Shipping Method</h2>
