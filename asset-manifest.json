@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-sales/static/css/main.eeb6743f.css",
-    "main.js": "/web-sales/static/js/main.323b3e43.js",
+    "main.js": "/web-sales/static/js/main.3ce012ab.js",
     "static/js/787.bcab7911.chunk.js": "/web-sales/static/js/787.bcab7911.chunk.js",
     "static/media/logo-dep.png": "/web-sales/static/media/logo-dep.e0b09e5897b8a725fd4c.png",
     "static/media/Mastercard.png": "/web-sales/static/media/Mastercard.de4dc7c892898a709ac3.png",
@@ -9,11 +9,11 @@
     "static/media/appstore.png": "/web-sales/static/media/appstore.312f6c8e02b207909abd.png",
     "index.html": "/web-sales/index.html",
     "main.eeb6743f.css.map": "/web-sales/static/css/main.eeb6743f.css.map",
-    "main.323b3e43.js.map": "/web-sales/static/js/main.323b3e43.js.map",
+    "main.3ce012ab.js.map": "/web-sales/static/js/main.3ce012ab.js.map",
     "787.bcab7911.chunk.js.map": "/web-sales/static/js/787.bcab7911.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eeb6743f.css",
-    "static/js/main.323b3e43.js"
+    "static/js/main.3ce012ab.js"
   ]
 }
