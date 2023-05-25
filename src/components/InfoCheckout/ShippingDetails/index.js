@@ -1,7 +1,15 @@
 import clsx from "clsx";
 import styles from "./styles.module.scss"
-
+import { useEffect, useState } from "react";
 export default function ShippingDetails() {
+    const [nations, setNations] = useState([])
+    useEffect(() => {
+        fetch("https://64560c052e41ccf1691288a4.mockapi.io/nation")
+            .then(res => res.json())
+            .then(res => setNations(res))
+
+    }, [])
+
     return (
         <div>
             <h2><span>2</span> Shipping Details</h2>
@@ -22,14 +30,13 @@ export default function ShippingDetails() {
                         <input id="code" type="text" />
                     </div>
                     <div>
-                        <label for="city">City</label>
+                        <label for="city">Country</label>
                         <select name="city" id="city">
-                            <option value= "hanoi">Ha Noi</option>
-                            <option value= "HCM">Ho Chi Minh City</option>
-                            <option value= "Can Tho">Can Tho</option>
-                            <option value= "Hai Phong">Hai Phong</option>
-                            <option value= "Nam Dinh">Nam Dinh</option>
-                            <option value= "Bac Ninh">Bac Ninh</option>
+                            {
+                                nations.map((nation) => (
+                                    <option key={nation.id} value={nation.country}>{nation.country}</option>
+                                ))
+                            }
                         </select>
                     </div>
                 </div>

@@ -6,7 +6,6 @@ import { useContext, useState, useEffect } from "react"
 import {AmountContext} from "../../../GlobalVariable/amountContext"
 function Heading() {
 const {amount, setAmount} = useContext(AmountContext)
-console.log(amount)
     return (
         <div className={clsx(styles.container, 'flex')}>
             <ul className={clsx(styles.listBar, 'flex')}>
