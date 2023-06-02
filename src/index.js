@@ -5,15 +5,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './GlobalStyles';
-import { AmountProvider } from './GlobalVariable/amountContext';
+import { ProductsArrProvider } from './GlobalVariable/ProductsArrContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <AmountProvider>
+    <ProductsArrProvider>
     <App />
-    </AmountProvider>
+    </ProductsArrProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

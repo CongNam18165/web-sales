@@ -8,3 +8,9 @@
 html{
     font-size: 62.5%;
 }
+.block{
+    display: block;
+}
+.none{
+    display: none;
+}

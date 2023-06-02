@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 import clsx from "clsx"
 import ProductItem from "../../../components/ProductItem"
-import { AmountContext } from '../../../GlobalVariable/amountContext'
+import { ProductsArrContext } from '../../../GlobalVariable/ProductsArrContext'
 
 function Container() {
 
@@ -13,7 +13,7 @@ function Container() {
             .then(res => setproducts(res))
 
     }, [])
-    const { amount, setAmount } = useContext(AmountContext)
+    const { ProductsArray, setProductsArray } = useContext(ProductsArrContext)
 
     function handleOnClickCart(product) {
         const datas = JSON.parse(localStorage.getItem("ProductsData")) || [];
@@ -21,7 +21,7 @@ function Container() {
             if (data.id === product.id) {
                 data.quantity++;
                 localStorage.setItem('ProductsData', JSON.stringify(datas));
-                setAmount(datas.length);
+                setProductsArray(datas);
             }
 
         })
@@ -34,31 +34,60 @@ function Container() {
                     id: product.id,
                     quantity: product.quantity,
                 })
-                setAmount(datas.length);
-                
+            setProductsArray(datas);
             localStorage.setItem('ProductsData', JSON.stringify(datas));
+        }
+    }
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [currentProducts, setCurrentProducts] = useState([]);
+    const itemsPerPage = 12;
+    const totalPages = Math.ceil(products.length / itemsPerPage);
+    useEffect(() => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const slicedProducts = products.slice(startIndex, endIndex);
+        setCurrentProducts(slicedProducts);
+    }, [currentPage, products, itemsPerPage]);
+
+    function handlePageChange(pageNumber) {
+        setCurrentPage(pageNumber)
+    }
+
+    function handleNextPage() {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
+    function handlePrePage() {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
         }
     }
     return (
         <>
             <div className={clsx(styles.container)}>
-                {products.map((product) => (
+                {currentProducts.map((product) => (
                     <ProductItem key={product.id} productItem={product} handleOnClick={handleOnClickCart} />
                 ))
                 }
             </div>
             <div>
-                <ul className={clsx(styles.numberPages, "flex")}>
-                    <li><i class="fa-solid fa-chevron-left"></i></li>
-                    <li><i class="fa-solid fa-1"></i></li>
-                    <li><i class="fa-solid fa-2"></i></li>
-                    <li><i class="fa-solid fa-3"></i></li>
-                    <li><i class="fa-solid fa-4"></i></li>
-                    <li><i class="fa-solid fa-ellipsis"></i></li>
-                    <li><i class="fa-solid fa-7"></i></li>
-                    <li><i class="fa-solid fa-chevron-right"></i></li>
-
-                </ul>
+                <div className={clsx(styles.numberPages, "flex")}>
+                    <button onClick={handlePrePage}><i class="fa-solid fa-angle-left"></i></button>
+                    {
+                        Array.from(Array(totalPages), (value, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => handlePageChange(index + 1)}
+                                disabled={currentPage === index + 1}
+                            >
+                                {index + 1}
+                            </button>
+                        ))
+                    }
+                    <button onClick={handleNextPage}><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
 
             </div>
         </>

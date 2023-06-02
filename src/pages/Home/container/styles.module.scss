@@ -12,12 +12,14 @@ margin-right: calc(15% - 0.8rem);
     justify-content: center;
 }
 .numberPages {
-& li{
+& button{
+    border-radius: 5px;
     margin: 0 0.8rem;
-    padding: 1.6rem;
+    border: none;
     font-size: 1.6rem;
+    padding: 0.2rem 0.8rem;
     &:hover{
-        border-radius: 50%;
+        // border-radius: 50%;
         background-color: #eee;
         cursor: pointer;
     }

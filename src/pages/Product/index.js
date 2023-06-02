@@ -2,19 +2,17 @@ import clsx from "clsx"
 import styles from "./styles.module.scss"
 import Heading from "../Home/Heading"
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
-
+import { useState, useEffect, useContext } from "react"
+import { ProductsArrContext } from "../../GlobalVariable/ProductsArrContext"
 function Product() {
         const { id } = useParams();
         const [detailProduct, setDetailProduct] = useState([]);
         const [amount, setAmount] = useState(1);
-
+        const { ProductsArray, setProductsArray } = useContext(ProductsArrContext)
         useEffect(() => {
                 fetch(`https://64560c052e41ccf1691288a4.mockapi.io/products/${id}`)
                         .then(res => res.json())
                         .then(res => setDetailProduct(res))
-                //     .then(console.log(detailProduct))
-
         }, [id])
 
         const rating = [];
@@ -22,7 +20,7 @@ function Product() {
                 rating.push('<i class="fa-solid fa-star"></i>')
         }
 
-        const numberSale = ((Number(detailProduct.price) * 80) / 100).toFixed() + '.00';
+        const numberSale = ((Number(detailProduct.price) * 120) / 100).toFixed() + '.00';
         const handleAmountMinus = () => {
                 if (amount > 1) {
                         setAmount(amount - 1);
@@ -30,6 +28,32 @@ function Product() {
         }
         const handleAmountPlus = () => {
                 setAmount(amount + 1);
+        }
+        function handleAddProduct(product){
+                const datas = JSON.parse(localStorage.getItem("ProductsData")) || [];
+                datas.map((data) => {
+                        if (data.id === product.id) {
+                                if(amount !==1 ){
+                                        data.quantity += amount;
+                                }else{
+                                        data.quantity++;
+                                }
+                                localStorage.setItem('ProductsData', JSON.stringify(datas));
+                                setProductsArray(datas)
+                        }
+                })
+                if (datas.every(data => data.id !== product.id) || datas.length === 0) {
+                        datas.push(
+                                {
+                                        name: product.name,
+                                        img: product.image,
+                                        price: product.price,
+                                        id: product.id,
+                                        quantity: amount,
+                                })
+                        localStorage.setItem('ProductsData', JSON.stringify(datas));
+                        setProductsArray(datas)
+                }
         }
         return (
                 <div>
@@ -54,7 +78,7 @@ function Product() {
                                         <p>Last update: {detailProduct.createdAt}</p>
                                         <div className={clsx(styles.boxBuy)}>
                                                 <h2><span>Amount: </span><i onClick={handleAmountMinus} class="fa-solid fa-minus"></i>{amount}<i onClick={handleAmountPlus} class="fa-solid fa-plus"></i></h2>
-                                                <h2>Add To Cart</h2>
+                                                <h2 onClick={() => {handleAddProduct(detailProduct)}}>Add To Cart</h2>
                                         </div>
                                         <p>Buy Now</p>
                                 </div>

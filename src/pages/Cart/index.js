@@ -4,26 +4,17 @@ import Heading from "../Home/Heading/index"
 import { useContext, useEffect, useState } from "react"
 import CartItem from "../../components/CartItem"
 import { Link } from "react-router-dom"
-import { AmountContext } from "../../GlobalVariable/amountContext";
+import { ProductsArrContext } from "../../GlobalVariable/ProductsArrContext";
 function Cart() {
-    const{ setAmount} = useContext(AmountContext)
-    const [cart, setCart] = useState([])
-    useEffect(() => {
-        const storeProducts = localStorage.getItem('ProductsData')
-
-        const parsedStoreProducts = JSON.parse(storeProducts);
-
-        setCart(parsedStoreProducts)
-    }, [])
+    const { ProductsArray, setProductsArray } = useContext(ProductsArrContext)
 
     function handleOnClickTrash(id) {
-        let newCart = cart.filter(item => item.id !== id)
-        setCart(newCart)
-        setAmount(newCart.length)
+        let newCart = ProductsArray.filter(item => item.id !== id)
+        setProductsArray(newCart)
         localStorage.setItem('ProductsData', JSON.stringify(newCart));
     }
     function handleQuantityMinus(parsedStoreProduct) {
-        let newCart = cart.map(cartItem => {
+        let newCart = ProductsArray.map(cartItem => {
             if (cartItem.id === parsedStoreProduct.id) {
                 if (cartItem.quantity > 0) {
                     cartItem.quantity--;
@@ -33,17 +24,16 @@ function Cart() {
         })
         newCart = newCart.filter(item => item.quantity > 0);
         localStorage.setItem('ProductsData', JSON.stringify(newCart));
-        setCart(newCart);
-        setAmount(newCart.length)
+        setProductsArray(newCart)
     }
 
     function handleQuantityPlus(parsedStoreProduct) {
-        let newCart = cart.map(cartItem => {
+        let newCart = ProductsArray.map(cartItem => {
             if (cartItem.id === parsedStoreProduct.id) cartItem.quantity++;
             return cartItem;
         })
         localStorage.setItem("ProductsData", JSON.stringify(newCart))
-        setCart(newCart);
+        setProductsArray(newCart);
     }
     return (
         <>
@@ -57,15 +47,18 @@ function Cart() {
                     <div><h2></h2></div>
                 </div>
                 {
-                    cart === null ? <h1>Empty</h1> :
-                        cart.map((parsedStoreProduct) => (
+                    ProductsArray === null ? <h1>Empty</h1> :
+                        ProductsArray.map((parsedStoreProduct) => (
                             <CartItem key={parsedStoreProduct.id} cartItem={parsedStoreProduct} onPlus={handleQuantityPlus} onMinus={handleQuantityMinus} onDelete={handleOnClickTrash} />
                         )
                         )
                 }
             </div>
             <div className={clsx(styles.buttonCheckout)}>
-                <Link to="/checkOut"> <button>CheckOut</button></Link>
+                {
+                    ProductsArray.length != 0 ?
+                        <Link to="/checkOut"> <button>CheckOut</button></Link> : ''
+                }
             </div>
         </>
     )

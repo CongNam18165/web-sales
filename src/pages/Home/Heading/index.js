@@ -2,10 +2,22 @@
 import clsx from 'clsx'
 import styles from "./styles.module.scss"
 import { Link } from "react-router-dom"
-import { useContext, useState, useEffect } from "react"
-import {AmountContext} from "../../../GlobalVariable/amountContext"
+import { useContext, useEffect, useRef, useState } from "react"
+import { ProductsArrContext } from "../../../GlobalVariable/ProductsArrContext"
+import empty from "../../../assets/images/giohangtrong.png"
+
 function Heading() {
-const {amount, setAmount} = useContext(AmountContext)
+    const { ProductsArray, setProductsArray } = useContext(ProductsArrContext)
+    const [isHover, setIsHover] = useState()
+
+    function handleHover() {
+        setIsHover(true)
+    }
+    function handleOutHover() {
+        setIsHover(false)
+    }
+
+
     return (
         <div className={clsx(styles.container, 'flex')}>
             <ul className={clsx(styles.listBar, 'flex')}>
@@ -24,11 +36,19 @@ const {amount, setAmount} = useContext(AmountContext)
                     <p>Top-up</p>
                     <i class="fa-solid fa-circle-dollar-to-slot"></i>
                 </li>
-                <li className={clsx(styles.amountProducts)}>
-                    <Link to="/cart"><i class="fa-solid fa-cart-shopping"></i></Link>
-                    <div><p className={clsx(styles.numberAmount)}>{amount}</p></div>
+                <li onMouseOut={handleOutHover} onMouseOver={handleHover} className={clsx(styles.amountProducts)}>
+                    <Link to="/cart" ><i class="fa-solid fa-cart-shopping"></i></Link>
+                    <div className={ProductsArray.length > 0 ? "block" : "none"} >
+                        <p className={clsx(styles.numberAmount)}>{ProductsArray.length}</p>
+                    </div>
+                    {(isHover && ProductsArray.length <= 0)  && (
+                        <div className={clsx(styles.emptybox)}>
+                            <img src={empty} />
+                            <p>Shopping cart is empty</p>
+                        </div>)
+                    }
                 </li>
-                <li >
+                <li  >
                     <i class="fa-solid fa-user"></i>
                 </li>
             </ul>

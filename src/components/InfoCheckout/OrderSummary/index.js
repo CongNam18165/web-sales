@@ -2,29 +2,32 @@ import clsx from "clsx";
 import styles from "./styles.module.scss"
 import { useState, useEffect, useContext } from "react"
 import { FeeShipContext } from "../../../GlobalVariable/shippingFeeContext";
+import { ProductsArrContext } from "../../../GlobalVariable/ProductsArrContext";
+
 export default function OrderSummary() {
-    const [products, setProducts] = useState([])
+
     const [totalCost, setTotalCost] = useState()
     const { fee, setFee } = useContext(FeeShipContext)
+    const { ProductsArray, setProductsArray } = useContext(ProductsArrContext)
+
     useEffect(() => {
-        const storeProducts = localStorage.getItem('ProductsData');
-        const parsedStoreProducts = JSON.parse(storeProducts);
-        setProducts(parsedStoreProducts);
-    }, [])
-    useEffect(() => {
-        const total = products.reduce((accumentlator, currentValue) => (accumentlator + currentValue.quantity * currentValue.price), 0)
+        const total = ProductsArray.reduce((accumentlator, currentValue) => (accumentlator + currentValue.quantity * currentValue.price), 0)
         setTotalCost(total);
-    }, [totalCost])
+    }, [ProductsArray])
+
+    function handleTrash(trashId) {
+        const newProducts = ProductsArray.filter(product => product.id !== trashId)
+        setProductsArray(newProducts);
+        localStorage.setItem('ProductsData', JSON.stringify(newProducts));
+    }
 
     const discount = (parseInt(totalCost) * 15) / 100;
     const Total = (parseInt(totalCost) + parseInt(fee) - parseInt(discount) + (parseInt(totalCost) * 0.07)).toFixed(2);
-    
-
     return (
         <div className={clsx(styles.boxOrder)}>
             <h1>Order Summary</h1>
             {
-                products.map(product => (
+                ProductsArray.map(product => (
                     <div className={clsx(styles.boxInfo)} key={product.id}>
                         <div className={clsx(styles.boxSmallInfo)}>
                             <img src={product.img} />
@@ -34,7 +37,7 @@ export default function OrderSummary() {
                                 <p>Amount: {product.quantity}</p>
                             </div >
                         </div>
-                        <p className={clsx(styles.trash)}><i class="fa-regular fa-trash-can"></i></p>
+                        <p onClick={() => { handleTrash(product.id) }} className={clsx(styles.trash)}><i class="fa-regular fa-trash-can"></i></p>
                     </div>
                 ))
             }
