@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/web-sales/static/css/main.eeb6743f.css",
-    "main.js": "/web-sales/static/js/main.3ce012ab.js",
+    "main.css": "/web-sales/static/css/main.b03cac65.css",
+    "main.js": "/web-sales/static/js/main.bdfd6bb6.js",
     "static/js/787.bcab7911.chunk.js": "/web-sales/static/js/787.bcab7911.chunk.js",
     "static/media/logo-dep.png": "/web-sales/static/media/logo-dep.e0b09e5897b8a725fd4c.png",
     "static/media/Mastercard.png": "/web-sales/static/media/Mastercard.de4dc7c892898a709ac3.png",
     "static/media/ggplay.png": "/web-sales/static/media/ggplay.9e4a30029f69114af33b.png",
     "static/media/appstore.png": "/web-sales/static/media/appstore.312f6c8e02b207909abd.png",
     "index.html": "/web-sales/index.html",
-    "main.eeb6743f.css.map": "/web-sales/static/css/main.eeb6743f.css.map",
-    "main.3ce012ab.js.map": "/web-sales/static/js/main.3ce012ab.js.map",
+    "main.b03cac65.css.map": "/web-sales/static/css/main.b03cac65.css.map",
+    "main.bdfd6bb6.js.map": "/web-sales/static/js/main.bdfd6bb6.js.map",
     "787.bcab7911.chunk.js.map": "/web-sales/static/js/787.bcab7911.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eeb6743f.css",
-    "static/js/main.3ce012ab.js"
+    "static/css/main.b03cac65.css",
+    "static/js/main.bdfd6bb6.js"
   ]
 }
