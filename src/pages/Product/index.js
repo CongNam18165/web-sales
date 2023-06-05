@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import styles from "./styles.module.scss"
-import Heading from "../Home/Heading"
-import { useParams } from "react-router-dom"
+import Heading from "../../components/Heading"
+import { useParams,useNavigate } from "react-router-dom"
 import { useState, useEffect, useContext } from "react"
 import { ProductsArrContext } from "../../GlobalVariable/ProductsArrContext"
 function Product() {
@@ -29,13 +29,13 @@ function Product() {
         const handleAmountPlus = () => {
                 setAmount(amount + 1);
         }
-        function handleAddProduct(product){
+        function handleAddProduct(product) {
                 const datas = JSON.parse(localStorage.getItem("ProductsData")) || [];
                 datas.map((data) => {
                         if (data.id === product.id) {
-                                if(amount !==1 ){
+                                if (amount !== 1) {
                                         data.quantity += amount;
-                                }else{
+                                } else {
                                         data.quantity++;
                                 }
                                 localStorage.setItem('ProductsData', JSON.stringify(datas));
@@ -55,6 +55,11 @@ function Product() {
                         setProductsArray(datas)
                 }
         }
+        const checkout = useNavigate();
+        function handleBuyNow(product) {
+                checkout('/checkOut');
+                handleAddProduct(product);
+        }
         return (
                 <div>
                         <Heading />
@@ -67,8 +72,8 @@ function Product() {
                                         <p>{detailProduct.name}</p>
                                         <p><span>Address</span>:  {detailProduct.address}</p>
                                         <ul className={clsx(styles.listStar)}>
-                                                {rating.map(() =>
-                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                {rating.map((id) =>
+                                                        <li key={id}><i class="fa-solid fa-star"></i></li>
 
                                                 )}
                                         </ul>
@@ -78,9 +83,9 @@ function Product() {
                                         <p>Last update: {detailProduct.createdAt}</p>
                                         <div className={clsx(styles.boxBuy)}>
                                                 <h2><span>Amount: </span><i onClick={handleAmountMinus} class="fa-solid fa-minus"></i>{amount}<i onClick={handleAmountPlus} class="fa-solid fa-plus"></i></h2>
-                                                <h2 onClick={() => {handleAddProduct(detailProduct)}}>Add To Cart</h2>
+                                                <h2 onClick={() => { handleAddProduct(detailProduct) }}>Add To Cart</h2>
                                         </div>
-                                        <p>Buy Now</p>
+                                        <p onClick={()=>handleBuyNow(detailProduct)}>Buy Now</p>
                                 </div>
                         </div>
                 </div>

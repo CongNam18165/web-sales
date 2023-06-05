@@ -10,6 +10,7 @@ import About from "./pages/About/About"
 import Product from "./pages/Product/index"
 import Cart from "./pages/Cart/index"
 import CheckOut from "./pages/CheckOut"
+import OrderSuccess from "./pages/OrderSuccess"
 function App() {
   return (
     <GlobalStyles>
@@ -22,6 +23,7 @@ function App() {
           <Route path = "/cart" element = {<Cart />} />
           <Route path= "/product/:id" element = {<Product />} />
           <Route path = "/checkOut" element = {<CheckOut />} />
+          <Route path = "/orderSuccess" element = {<OrderSuccess/>} />
         </Routes>
         <Footer/>
       </div>

@@ -1,5 +1,5 @@
 
-import Heading from './Heading'
+import Heading from "../../components/Heading"
 import Container from './container'
 
 function HomePage(){

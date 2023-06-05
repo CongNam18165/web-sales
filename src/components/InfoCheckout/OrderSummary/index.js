@@ -3,6 +3,7 @@ import styles from "./styles.module.scss"
 import { useState, useEffect, useContext } from "react"
 import { FeeShipContext } from "../../../GlobalVariable/shippingFeeContext";
 import { ProductsArrContext } from "../../../GlobalVariable/ProductsArrContext";
+import {Link} from "react-router-dom"
 
 export default function OrderSummary() {
 
@@ -54,7 +55,7 @@ export default function OrderSummary() {
             </div>
             <hr />
             <div className={clsx(styles.totalCost)}><p>Total</p><p>${Total}</p></div>
-            <div className={clsx(styles.btnOrder)}><button>Order Now</button></div>
+            <Link to ="/orderSuccess" className={clsx(styles.btnOrder)}><button>Order Now</button></Link>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import clsx from "clsx";
-import Heading from "../Home/Heading/index"
+import Heading from "../../components/Heading"
 import { useContext, useEffect, useState } from "react"
 import CartItem from "../../components/CartItem"
 import { Link } from "react-router-dom"

@@ -3,8 +3,8 @@ import clsx from 'clsx'
 import styles from "./styles.module.scss"
 import { Link } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"
-import { ProductsArrContext } from "../../../GlobalVariable/ProductsArrContext"
-import empty from "../../../assets/images/giohangtrong.png"
+import { ProductsArrContext } from "../../GlobalVariable/ProductsArrContext"
+import empty from "../../assets/images/giohangtrong.png"
 
 function Heading() {
     const { ProductsArray, setProductsArray } = useContext(ProductsArrContext)

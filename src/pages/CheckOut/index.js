@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss"
 import clsx from "clsx"
-import Heading from "../Home/Heading"
+import Heading from "../../components/Heading"
 import InfoCheckout from "../../components/InfoCheckout"
 
 function CheckOut() {
