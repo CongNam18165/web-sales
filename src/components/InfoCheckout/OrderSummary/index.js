@@ -3,7 +3,7 @@ import styles from "./styles.module.scss"
 import { useState, useEffect, useContext } from "react"
 import { FeeShipContext } from "../../../GlobalVariable/shippingFeeContext";
 import { ProductsArrContext } from "../../../GlobalVariable/ProductsArrContext";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function OrderSummary() {
 
@@ -24,6 +24,13 @@ export default function OrderSummary() {
 
     const discount = (parseInt(totalCost) * 15) / 100;
     const Total = (parseInt(totalCost) + parseInt(fee) - parseInt(discount) + (parseInt(totalCost) * 0.07)).toFixed(2);
+
+    function handleOrder(e) {
+        if (ProductsArray.length <= 0) {
+            e.preventDefault();
+            alert('No items to buy. Please add item to cart')
+        }
+    }
     return (
         <div className={clsx(styles.boxOrder)}>
             <h1>Order Summary</h1>
@@ -55,7 +62,7 @@ export default function OrderSummary() {
             </div>
             <hr />
             <div className={clsx(styles.totalCost)}><p>Total</p><p>${Total}</p></div>
-            <Link to ="/orderSuccess" className={clsx(styles.btnOrder)}><button>Order Now</button></Link>
+            <Link onClick={handleOrder} to="/orderSuccess" className={clsx(styles.btnOrder)}><button>Order Now</button></Link>
         </div>
     )
 }

@@ -3,9 +3,10 @@ import clsx from "clsx";
 import img from "../../assets/images/orderSuccess.jpg"
 import { useNavigate } from "react-router-dom";
 function OrderSuccess() {
-    const continuesOrder =useNavigate();
-    function handleContinues(){
- continuesOrder("/")
+    const continuesOrder = useNavigate();
+    function handleContinues() {
+        continuesOrder("/")
+        
     }
     return (
         <div className={clsx(styles.boxOrder)}>
