@@ -1,4 +1,4 @@
-
+import {memo} from 'react'
 import clsx from 'clsx'
 import styles from "./styles.module.scss"
 import { Link } from "react-router-dom"
@@ -55,4 +55,4 @@ function Heading() {
         </div>
     )
 }
-export default Heading
+export default memo(Heading)

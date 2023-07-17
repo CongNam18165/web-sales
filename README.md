@@ -68,3 +68,43 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### About Project
+- Sử dụng công nghệ: Reactjs,JS,HTML,SCSS,MockAPI, Reponsive.
+- Mô tả: 
++ Website bán hàng sử dụng MockAPI để fake dữ liệu render ra giao diện người dùng. Có 2 trang sản phẩm.
++ Click vào mặt hàng sẽ ra chi tiết sản phẩm. 
++ Chức năng thêm vào giỏ hàng lưu vào localStorage, thêm xóa các sản phẩm ở trang giỏ hàng.
++ Chức năng checkOut tính toán giá mặt hàng sản phẩm,Form checkOut nhưng chưa validate, lựa chọn các phương thức thanh toán,vận chuyển.
++ MockAPI chứa các dữ liệu
+- Kĩ năng:
++ Sử dụng các hook Component cơ bản: useState,useEffect,useRef,useContext...
++ Sử dụng ReactRouter để chuyển đổi giữa các trang với nhau.
+- Kiến trúc tạo file: Trong thư mục src có 3 thư mục chính là assets,component và page.
++ Thư mục asset chứa các hình ảnh mà project sử dụng. 
++ Thư mục Component chứa các component con và các component sử dụng lại nhiều lần.
+> Component CartItem: có nhiệm vụ render ra các sản phẩm đã thêm vào giỏ hàng và có các nút xóa, thêm số lượng, tự động tính toán giá các sản phẩm.
+> Component Footer: có nhiệm vụ render giao diện phần cuối trang web
+> Component Heading: Có nhiệm vụ render ra phần đầu của trang Home.
+> Thư mục Infocheckout: gồm các Component OrderSummary,PaymentMethod,PersonalDetails,ShippingDetails,ShippingMethod là các component render ra phần trang checkOut
+> Component Navbar: có nhiệm vụ render ra thanh công cụ search(khi bấm vào sẽ có hiệu ứng trượt thanh tìm kiếm xuống), cài đặt, các trang lớn.
+> Component ProductItem: có nhiệm vụ render ra các thông tin sản phẩm ở phần thân của trang Home như là tên, giá,mô tả qua....
++ Thư mục GlobalStyles: chứa các thuộc tính css mang tính toàn cục
++ Thư mục GlobalVariable: chứa các biến toàn cục để di chuyển giữa các component với nhau. Cụ thể là biến sản phẩm được chọn lưu vào localStorage và phí vận chuyển.
++ Thư mục Pages chứa các component lớn là các trang chính của project gồm:
+> About:
+> Cart: Sử dụng các Component Heading, CartItems
+> checkOut: sử dụng các Component Heading và InfoCheckOut
+> Home: sử dụng  Component ProductItem
+> News:
+> OrderSuccess: phần trang thông báo thành công sau khi order xong các mặt hàng lựa chọn
+> Product: Trang hiển thị thông tin chi tiết sản phẩm khi người dùng click vào ảnh sản phẩm gòm có (tên, địa chỉ, số sao, số giờ mở cửa...)
+- Các kiến thức JavaScript đã học:
++ Các khái niệm về Hàm, chuỗi, số, object.
++ if..else, toán tử 3 ngôi.
++ Vòng lặp: for...in, for...of,do...while
++ Làm việc với mảng: các phương thức map(),reduce(),every(),filter().
++ Callback,DOM.
++ JSON,fetch, làm việc với Postman.
++ ECMAScript 6+ : từ khóa let,const,var,toán tử spread,rest
++ JS nâng cao: Scope, Closure, Hosting.

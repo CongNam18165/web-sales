@@ -1,0 +1,17 @@
+.boxAddProducts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxNameProducts,
+.boxImgUrl,
+.boxPrice {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnEdit {
+    margin: 0.8rem;
+}

@@ -19,4 +19,5 @@ function OrderSuccess() {
         </div>
     )
 }
+
 export default OrderSuccess;

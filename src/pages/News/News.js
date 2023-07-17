@@ -1,8 +1,8 @@
-import Heading from "./Heading"
+import ContainerNews from "./ContainerNews"
 function News(){
     return(
         <div>
-        <Heading/>
+        <ContainerNews/>
         </div>
     )
 }

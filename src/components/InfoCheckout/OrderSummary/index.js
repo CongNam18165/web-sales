@@ -30,6 +30,10 @@ export default function OrderSummary() {
             e.preventDefault();
             alert('No items to buy. Please add item to cart')
         }
+        else{
+            setProductsArray([]);
+            localStorage.setItem('ProductsData', JSON.stringify([]));
+        }
     }
     return (
         <div className={clsx(styles.boxOrder)}>
@@ -63,6 +67,7 @@ export default function OrderSummary() {
             <hr />
             <div className={clsx(styles.totalCost)}><p>Total</p><p>${Total}</p></div>
             <Link onClick={handleOrder} to="/orderSuccess" className={clsx(styles.btnOrder)}><button>Order Now</button></Link>
+            
         </div>
     )
 }
