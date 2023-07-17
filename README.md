@@ -76,7 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 + Click vào mặt hàng sẽ ra chi tiết sản phẩm. 
 + Chức năng thêm vào giỏ hàng lưu vào localStorage, thêm xóa các sản phẩm ở trang giỏ hàng.
 + Chức năng checkOut tính toán giá mặt hàng sản phẩm,Form checkOut nhưng chưa validate, lựa chọn các phương thức thanh toán,vận chuyển.
-+ MockAPI chứa các dữ liệu
++ MockAPI chứa dữ liệu: id, số lượng sao vote,địa chỉ, mô tả, tên, ảnh sản phẩm, giá tiền, thời gian update.
 - Kĩ năng:
 + Sử dụng các hook Component cơ bản: useState,useEffect,useRef,useContext...
 + Sử dụng ReactRouter để chuyển đổi giữa các trang với nhau.
